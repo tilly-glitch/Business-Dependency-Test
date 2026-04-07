@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "The Business Dependency Test — Efficiency Integration",
   description:
