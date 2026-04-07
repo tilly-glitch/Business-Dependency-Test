@@ -49,7 +49,13 @@ export default function ResultsPage({
   );
 
   return (
-    <div className="fade-in">
+    <div
+      className="fade-in rounded-2xl p-6"
+      style={{
+        backgroundColor: "#ffffff",
+        boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
+      }}
+    >
       {/* Section 1: Headline */}
       <div className="text-center mb-8">
         <h1

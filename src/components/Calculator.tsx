@@ -161,91 +161,95 @@ export default function Calculator() {
 
   return (
     <div>
-      {/* Step 0: Capture */}
+      {/* Step 0: Capture (hero style) */}
       {step === 0 && (
         <div className="fade-in">
-          <div className="text-center mb-8">
-            <p
-              className="text-xs font-semibold tracking-widest uppercase mb-4"
-              style={{ color: "#F687B3", letterSpacing: "0.15em" }}
-            >
-              EFFICIENCY INTEGRATION
+          <div className="text-center mb-10 pt-8">
+            <p className="text-base font-bold tracking-wider mb-8">
+              <span className="text-white">Efficiency</span>
+              <span style={{ color: "#fbb6ce" }}> Integration</span>
             </p>
             <h1
-              className="text-2xl mb-4 leading-snug"
-              style={{ fontFamily: "Georgia, serif", color: "#11114E" }}
+              className="font-black text-white leading-[1.1] mb-6"
+              style={{ fontSize: "clamp(28px, 7vw, 44px)" }}
             >
-              Your business can&apos;t depend on your good days.
+              Your business can&apos;t depend on
+              <span className="block mt-2" style={{ color: "#fbb6ce" }}>
+                your good days.
+              </span>
             </h1>
-            <p className="text-sm leading-relaxed" style={{ color: "#666" }}>
-              In 90 seconds, you&apos;ll see how dependent your business is on
-              your good days, what your crashes are really costing you, and what
-              to fix first.
+            <p className="text-base text-white/85 leading-relaxed max-w-md mx-auto">
+              In 90 seconds, see how dependent your business is on your good
+              days, what your crashes are really costing you, and what to fix
+              first.
             </p>
           </div>
 
-          <div className="space-y-4 mb-6">
-            <input
-              type="text"
-              placeholder="First name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border-2 text-sm outline-none transition-colors"
-              style={{
-                borderColor: "#d1d5db",
-                color: "#11114E",
-                minHeight: 44,
-              }}
-              onFocus={(e) =>
-                (e.currentTarget.style.borderColor = "#F687B3")
-              }
-              onBlur={(e) =>
-                (e.currentTarget.style.borderColor = "#d1d5db")
-              }
-            />
-            <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border-2 text-sm outline-none transition-colors"
-              style={{
-                borderColor: "#d1d5db",
-                color: "#11114E",
-                minHeight: 44,
-              }}
-              onFocus={(e) =>
-                (e.currentTarget.style.borderColor = "#F687B3")
-              }
-              onBlur={(e) =>
-                (e.currentTarget.style.borderColor = "#d1d5db")
-              }
-            />
-          </div>
-
-          <button
-            onClick={next}
-            disabled={!canProceed()}
-            className="w-full py-3 rounded-xl font-semibold text-sm transition-all"
+          <div
+            className="rounded-2xl p-6 mb-4"
             style={{
-              background: canProceed()
-                ? "linear-gradient(135deg, #F687B3, #FBB6CE)"
-                : "#e5e7eb",
-              color: canProceed() ? "#11114E" : "#9ca3af",
-              minHeight: 44,
-              boxShadow: canProceed()
-                ? "0 0 20px rgba(246,135,179,0.4)"
-                : "none",
-              animation: canProceed() ? "pulse-shadow 2s infinite" : "none",
+              backgroundColor: "#ffffff",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
             }}
           >
-            Show Me →
-          </button>
+            <div className="space-y-4 mb-5">
+              <input
+                type="text"
+                placeholder="First name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="w-full px-4 py-3.5 rounded-xl border-2 text-base outline-none transition-colors"
+                style={{
+                  borderColor: "#e5e7eb",
+                  color: "#11114E",
+                  minHeight: 44,
+                }}
+                onFocus={(e) =>
+                  (e.currentTarget.style.borderColor = "#f687b3")
+                }
+                onBlur={(e) =>
+                  (e.currentTarget.style.borderColor = "#e5e7eb")
+                }
+              />
+              <input
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3.5 rounded-xl border-2 text-base outline-none transition-colors"
+                style={{
+                  borderColor: "#e5e7eb",
+                  color: "#11114E",
+                  minHeight: 44,
+                }}
+                onFocus={(e) =>
+                  (e.currentTarget.style.borderColor = "#f687b3")
+                }
+                onBlur={(e) =>
+                  (e.currentTarget.style.borderColor = "#e5e7eb")
+                }
+              />
+            </div>
 
-          <p
-            className="text-center text-xs mt-3"
-            style={{ color: "#aaa" }}
-          >
+            <button
+              onClick={next}
+              disabled={!canProceed()}
+              className={`w-full py-4 rounded-xl font-black text-base transition-all hover:-translate-y-0.5 active:scale-[0.98] ${
+                canProceed() ? "pulse-glow" : ""
+              }`}
+              style={{
+                background: canProceed()
+                  ? "linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%)"
+                  : "#e5e7eb",
+                color: canProceed() ? "#11114e" : "#9ca3af",
+                minHeight: 56,
+              }}
+            >
+              Show Me →
+            </button>
+          </div>
+
+          <p className="text-center text-xs text-white/60">
             Free. No spam. Just your results.
           </p>
         </div>
@@ -260,7 +264,7 @@ export default function Calculator() {
             className="rounded-2xl p-6"
             style={{
               backgroundColor: "#ffffff",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
             }}
           >
             {/* Step 1: Good day hours */}
@@ -452,30 +456,32 @@ export default function Calculator() {
               </>
             )}
 
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-8">
-              <button
-                onClick={back}
-                className="text-sm transition-colors"
-                style={{ color: "#888" }}
-              >
-                ← Back
-              </button>
-              <button
-                onClick={next}
-                disabled={!canProceed()}
-                className="px-6 py-3 rounded-xl font-semibold text-sm transition-all"
-                style={{
-                  background: canProceed()
-                    ? "linear-gradient(135deg, #F687B3, #FBB6CE)"
-                    : "#e5e7eb",
-                  color: canProceed() ? "#11114E" : "#9ca3af",
-                  minHeight: 44,
-                }}
-              >
-                {step === 7 ? "See My Results →" : "Next →"}
-              </button>
-            </div>
+          </div>
+
+          {/* Navigation outside the card */}
+          <div className="flex items-center justify-between mt-6">
+            <button
+              onClick={back}
+              className="text-sm font-medium text-white/60 hover:text-white/90 transition-colors"
+            >
+              ← Back
+            </button>
+            <button
+              onClick={next}
+              disabled={!canProceed()}
+              className={`px-8 py-4 rounded-xl font-black text-base transition-all hover:-translate-y-0.5 active:scale-[0.98] ${
+                canProceed() ? "pulse-glow" : ""
+              }`}
+              style={{
+                background: canProceed()
+                  ? "linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%)"
+                  : "rgba(255,255,255,0.1)",
+                color: canProceed() ? "#11114e" : "rgba(255,255,255,0.4)",
+                minHeight: 52,
+              }}
+            >
+              {step === 7 ? "See My Results →" : "Next →"}
+            </button>
           </div>
         </div>
       )}
