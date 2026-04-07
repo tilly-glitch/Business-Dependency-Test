@@ -94,12 +94,12 @@ export default function ResultsPage({
         >
           <CostCounter value={results.monthlyCostLost} prefix="$" suffix="/mo" />
         </div>
-        <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.7)" }}>
+        <p className="text-sm mb-4 leading-relaxed" style={{ color: "rgba(255,255,255,0.85)" }}>
           That&apos;s{" "}
           <span className="font-semibold" style={{ color: "#F687B3" }}>
             ${results.annualCost.toLocaleString()}/year
           </span>{" "}
-          in lost capacity
+          walking out the door while you&apos;re on the couch feeling guilty for resting.
         </p>
 
         <div
@@ -131,11 +131,17 @@ export default function ResultsPage({
         </div>
 
         {lostClient !== "No" && (
-          <p className="text-xs mt-4" style={{ color: "#FBB6CE" }}>
+          <div
+            className="mt-5 pt-4 text-sm font-semibold leading-relaxed"
+            style={{
+              color: "#FBB6CE",
+              borderTop: "1px solid rgba(255,255,255,0.15)",
+            }}
+          >
             {lostClient === "Yes"
-              ? "You've already lost clients to crashes. That cost isn't in this number."
-              : "You suspect you've lost clients to crashes. That cost isn't in this number either."}
-          </p>
+              ? "And you've already lost clients to crashes. That cost isn't in this number."
+              : "And you suspect you've lost clients to crashes. That cost isn't in this number either."}
+          </div>
         )}
       </div>
 
@@ -289,29 +295,22 @@ export default function ResultsPage({
         </h2>
         <p
           className="text-sm text-center mb-5 leading-relaxed"
-          style={{ color: "rgba(255,255,255,0.7)" }}
+          style={{ color: "rgba(255,255,255,0.8)" }}
         >
-          We build automation systems for women with chronic illness so your
-          business keeps running on your worst days. No fluff. No 47-step
-          funnels. Just the things that actually move the needle.
+          I build automation systems for women with autoimmune conditions so
+          your business keeps running on your worst days. No hustle culture.
+          No 12-hour days. Just systems that run when your body says no.
         </p>
-        <a
-          href="https://efficiencyintegration.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all"
-          style={{
-            background: "linear-gradient(135deg, #F687B3, #FBB6CE)",
-            color: "#11114E",
-            minHeight: 44,
-            lineHeight: "44px",
-          }}
-        >
-          See How We Can Help →
-        </a>
         <p
-          className="text-center mt-4 text-xs"
-          style={{ color: "rgba(255,255,255,0.5)" }}
+          className="text-sm text-center mb-5 leading-relaxed font-semibold"
+          style={{ color: "#FBB6CE" }}
+        >
+          If this hit hard — reply to the email you&apos;re about to get and
+          tell me what landed hardest.
+        </p>
+        <p
+          className="text-center text-sm"
+          style={{ color: "#F687B3", fontFamily: "Georgia, serif" }}
         >
           — Tilly, Efficiency Integration
         </p>
