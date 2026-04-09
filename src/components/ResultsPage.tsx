@@ -157,32 +157,38 @@ export default function ResultsPage({
           <div
             className="rounded-xl p-4 text-center"
             style={{
-              backgroundColor: "rgba(246,135,179,0.08)",
-              border: "1px solid #FBB6CE",
+              backgroundColor: "#E8F5E9",
+              border: "1px solid #A5D6A7",
             }}
           >
             <div
-              className="text-2xl font-bold"
-              style={{ color: "#11114E", fontFamily: "Georgia, serif" }}
+              className="text-3xl font-bold"
+              style={{ color: "#2E7D32", fontFamily: "Georgia, serif" }}
             >
               {goodDayHours}h
             </div>
-            <div className="text-xs mt-1" style={{ color: "#888" }}>
-              Good day
+            <div className="text-xs mt-2 font-semibold" style={{ color: "#2E7D32" }}>
+              GOOD DAY
+            </div>
+            <div className="text-xs mt-1" style={{ color: "#558B5C" }}>
+              Everything runs — because you&apos;re running it.
             </div>
           </div>
           <div
             className="rounded-xl p-4 text-center"
-            style={{ backgroundColor: "#f3f4f6", border: "1px solid #d1d5db" }}
+            style={{ backgroundColor: "#FFF3E0", border: "1px solid #FFCC80" }}
           >
             <div
-              className="text-2xl font-bold"
-              style={{ color: "#11114E", fontFamily: "Georgia, serif" }}
+              className="text-3xl font-bold"
+              style={{ color: "#E65100", fontFamily: "Georgia, serif" }}
             >
               {badDayHours}h
             </div>
-            <div className="text-xs mt-1" style={{ color: "#888" }}>
-              Bad day
+            <div className="text-xs mt-2 font-semibold" style={{ color: "#E65100" }}>
+              BAD DAY
+            </div>
+            <div className="text-xs mt-1" style={{ color: "#A0522D" }}>
+              {results.gaps.length} things stop. Nobody picks them up.
             </div>
           </div>
         </div>
@@ -283,8 +289,47 @@ export default function ResultsPage({
         </div>
       )}
 
+      {/* Share prompt */}
+      <div
+        className="rounded-xl p-4 mb-6 text-center"
+        style={{
+          backgroundColor: "rgba(246,135,179,0.08)",
+          border: "1px dashed #FBB6CE",
+        }}
+      >
+        <p className="text-sm mb-3" style={{ color: "#11114E" }}>
+          Know someone who needs to see this?
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            const url = "https://business-dependency-test.vercel.app";
+            if (navigator.share) {
+              navigator
+                .share({
+                  title: "The Business Dependency Test",
+                  text: "How dependent is your business on your good days?",
+                  url,
+                })
+                .catch(() => {});
+            } else {
+              navigator.clipboard.writeText(url);
+              alert("Link copied!");
+            }
+          }}
+          className="px-5 py-2 rounded-full text-xs font-semibold transition-all hover:scale-105"
+          style={{
+            backgroundColor: "#F687B3",
+            color: "#11114E",
+            minHeight: 36,
+          }}
+        >
+          📋 Copy link to share
+        </button>
+      </div>
+
       {/* Section 6: CTA */}
-      <div className="rounded-2xl p-6 mb-8" style={{ backgroundColor: "#11114E" }}>
+      <div className="rounded-2xl p-6 mb-6" style={{ backgroundColor: "#11114E" }}>
         <h2
           className="text-lg mb-3 text-center"
           style={{ fontFamily: "Georgia, serif", color: "#ffffff" }}
@@ -309,10 +354,41 @@ export default function ResultsPage({
           tell me what landed hardest.
         </p>
         <p
+          className="text-center text-xs mb-4"
+          style={{ color: "rgba(255,255,255,0.6)" }}
+        >
+          Or if you already know you need help —{" "}
+          <a
+            href="https://hello.efficiencyintegration.com/widget/booking/7DqSkUoG7rRJwARIlF6n"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#FBB6CE",
+              textDecoration: "underline",
+            }}
+          >
+            book a free 30-min call here
+          </a>
+        </p>
+        <p
           className="text-center text-sm"
           style={{ color: "#F687B3", fontFamily: "Georgia, serif" }}
         >
           — Tilly, Efficiency Integration
+        </p>
+      </div>
+
+      {/* Inbox prompt (Fix 10) */}
+      <div className="text-center mb-6 px-4">
+        <p
+          className="text-base font-semibold mb-2"
+          style={{ color: "#11114E", fontFamily: "Georgia, serif" }}
+        >
+          📬 Check your inbox.
+        </p>
+        <p className="text-sm leading-relaxed" style={{ color: "#666" }}>
+          Your first email from me is on its way. It&apos;ll have your full
+          breakdown and what I&apos;d do first if I were you.
         </p>
       </div>
 

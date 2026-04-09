@@ -185,6 +185,21 @@ export default function Calculator() {
             </p>
           </div>
 
+          {/* Social proof (Fix 5) */}
+          <div
+            className="rounded-xl p-4 mb-4 text-center"
+            style={{
+              backgroundColor: "rgba(251, 182, 206, 0.1)",
+              border: "1px solid rgba(251, 182, 206, 0.3)",
+            }}
+          >
+            <p className="text-sm leading-relaxed text-white/90 italic">
+              Built by a former PT who burned out and got Hashimoto&apos;s.
+              I use these systems to run my own business on bad days — so you
+              can too.
+            </p>
+          </div>
+
           <div
             className="rounded-2xl p-6 mb-4"
             style={{
@@ -251,6 +266,9 @@ export default function Calculator() {
 
           <p className="text-center text-xs text-white/60">
             Free. No spam. Just your results.
+          </p>
+          <p className="text-center text-xs text-white/50 mt-1">
+            Takes 90 seconds. Be honest with yourself.
           </p>
         </div>
       )}
