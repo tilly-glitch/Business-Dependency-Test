@@ -127,6 +127,38 @@ export default function Calculator() {
         gapPriority2: r.gapPriority2,
       });
 
+      // Fire Meta pixel Lead event (client-side)
+      try {
+        const w = window as unknown as { fbq?: (...args: unknown[]) => void };
+        w.fbq?.("track", "Lead", {
+          currency: "USD",
+          value: r.annualCost,
+          content_name: "BDT Completed",
+        });
+      } catch {}
+
+      // Fire server-side CAPI Lead event (deduped via event_id)
+      try {
+        const cookies =
+          typeof document !== "undefined" ? document.cookie : "";
+        const fbp = cookies.match(/_fbp=([^;]+)/)?.[1] ?? "";
+        const fbc = cookies.match(/_fbc=([^;]+)/)?.[1] ?? "";
+        fetch("/api/track-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName,
+            email,
+            annualCost: r.annualCost,
+            dependencyScore: r.dependencyScore,
+            pageUrl:
+              typeof window !== "undefined" ? window.location.href : "",
+            fbp,
+            fbc,
+          }),
+        }).catch(() => {});
+      } catch {}
+
       setStep(8);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -147,6 +179,7 @@ export default function Calculator() {
     return (
       <ResultsPage
         firstName={firstName}
+        email={email}
         results={results}
         goodDayHours={goodDayHours}
         badDayHours={badDayHours}

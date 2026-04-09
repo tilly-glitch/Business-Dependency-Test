@@ -7,6 +7,7 @@ import CostCounter from "./CostCounter";
 
 interface ResultsPageProps {
   firstName: string;
+  email: string;
   results: CalcResults;
   goodDayHours: number;
   badDayHours: number;
@@ -35,6 +36,7 @@ function getHeadlineSubtext(score: number): string {
 
 export default function ResultsPage({
   firstName,
+  email,
   results,
   goodDayHours,
   badDayHours,
@@ -378,7 +380,7 @@ export default function ResultsPage({
         </p>
       </div>
 
-      {/* Inbox prompt (Fix 10) */}
+      {/* Inbox prompt (Fix 10) — links to /thank-you */}
       <div className="text-center mb-6 px-4">
         <p
           className="text-base font-semibold mb-2"
@@ -386,10 +388,21 @@ export default function ResultsPage({
         >
           📬 Check your inbox.
         </p>
-        <p className="text-sm leading-relaxed" style={{ color: "#666" }}>
+        <p className="text-sm leading-relaxed mb-4" style={{ color: "#666" }}>
           Your first email from me is on its way. It&apos;ll have your full
           breakdown and what I&apos;d do first if I were you.
         </p>
+        <a
+          href={`/thank-you?name=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}&score=${results.dependencyScore}&monthlyCost=${results.monthlyCostLost}`}
+          className="inline-block px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-0.5"
+          style={{
+            background: "linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%)",
+            color: "#11114E",
+            boxShadow: "0 0 15px rgba(246,135,179,0.3)",
+          }}
+        >
+          What happens next →
+        </a>
       </div>
 
       {/* Footer */}
