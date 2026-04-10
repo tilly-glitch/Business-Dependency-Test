@@ -2,14 +2,30 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+const SITE_URL = "https://dependency.efficiencyintegration.com";
+const TITLE = "The Business Dependency Test — Efficiency Integration";
+const DESCRIPTION =
+  "In 90 seconds, see how dependent your business is on your good days, what your crashes are really costing you, and what to fix first. Built for women with autoimmune conditions.";
+
 export const metadata: Metadata = {
-  title: "The Business Dependency Test — Efficiency Integration",
-  description:
-    "In 90 seconds, see how dependent your business is on your good days, what your crashes are really costing you, and what to fix first. Built for women with autoimmune conditions.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: "The Business Dependency Test — Efficiency Integration",
-    description:
-      "In 90 seconds, see how dependent your business is on your good days, what your crashes are really costing you, and what to fix first. Built for women with autoimmune conditions.",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Efficiency Integration",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

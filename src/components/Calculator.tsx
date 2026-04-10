@@ -218,7 +218,73 @@ export default function Calculator() {
             </p>
           </div>
 
-          {/* Social proof (Fix 5) */}
+          {/* Results preview mockup (what she'll see after submitting) */}
+          <div
+            className="rounded-2xl p-5 mb-4 relative overflow-hidden"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.06)",
+              border: "1px dashed rgba(251, 182, 206, 0.35)",
+            }}
+          >
+            <p
+              className="text-[10px] uppercase tracking-widest text-white/50 text-center mb-3 font-bold"
+              style={{ letterSpacing: "0.15em" }}
+            >
+              Your results will look like this
+            </p>
+            <div className="flex items-center gap-4">
+              {/* Mock score circle */}
+              <div
+                className="shrink-0 rounded-full flex items-center justify-center relative"
+                style={{
+                  width: 72,
+                  height: 72,
+                  background:
+                    "conic-gradient(#F687B3 0% 72%, rgba(255,255,255,0.12) 72% 100%)",
+                }}
+              >
+                <div
+                  className="rounded-full flex flex-col items-center justify-center"
+                  style={{
+                    width: 56,
+                    height: 56,
+                    backgroundColor: "#11114e",
+                  }}
+                >
+                  <span
+                    className="font-bold text-white leading-none"
+                    style={{ fontSize: 18 }}
+                  >
+                    72%
+                  </span>
+                  <span
+                    className="text-white/60 leading-none mt-0.5"
+                    style={{ fontSize: 7 }}
+                  >
+                    AT RISK
+                  </span>
+                </div>
+              </div>
+
+              {/* Mock cost */}
+              <div className="flex-1 min-w-0">
+                <p className="text-[10px] uppercase text-pink-300/80 font-bold tracking-wider mb-0.5">
+                  Monthly cost of crashes
+                </p>
+                <p
+                  className="font-bold text-white leading-tight"
+                  style={{ fontFamily: "Georgia, serif", fontSize: 24 }}
+                >
+                  $2,400/mo
+                </p>
+                <p className="text-[11px] text-white/60 leading-snug mt-1">
+                  #1 to fix: Lead follow-up
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Social proof */}
           <div
             className="rounded-xl p-4 mb-4 text-center"
             style={{
@@ -286,10 +352,10 @@ export default function Calculator() {
                 canProceed() ? "pulse-glow" : ""
               }`}
               style={{
-                background: canProceed()
-                  ? "linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%)"
-                  : "#e5e7eb",
-                color: canProceed() ? "#11114e" : "#9ca3af",
+                background: "linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%)",
+                color: "#11114e",
+                opacity: canProceed() ? 1 : 0.55,
+                cursor: canProceed() ? "pointer" : "not-allowed",
                 minHeight: 56,
               }}
             >
@@ -298,10 +364,7 @@ export default function Calculator() {
           </div>
 
           <p className="text-center text-xs text-white/60">
-            Free. No spam. Just your results.
-          </p>
-          <p className="text-center text-xs text-white/50 mt-1">
-            Takes 90 seconds. Be honest with yourself.
+            Free. No spam. Takes 90 seconds — be honest with yourself.
           </p>
         </div>
       )}
