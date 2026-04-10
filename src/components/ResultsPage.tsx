@@ -305,7 +305,7 @@ export default function ResultsPage({
         <button
           type="button"
           onClick={() => {
-            const url = "https://business-dependency-test.vercel.app";
+            const url = "https://dependency.efficiencyintegration.com";
             if (navigator.share) {
               navigator
                 .share({
